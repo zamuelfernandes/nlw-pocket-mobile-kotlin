@@ -14,13 +14,14 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.zamuelfernandes.nearby.data.model.NearbyCategory
+import com.zamuelfernandes.nearby.data.model.Category
+import com.zamuelfernandes.nearby.data.model.mock.mockCategories
 
 @Composable
 fun NearbyCategoryFilterCHipList(
     modifier: Modifier = Modifier,
-    categories: List<NearbyCategory>,
-    onSelectCategoryChanged: (NearbyCategory) -> Unit,
+    categories: List<Category>,
+    onSelectCategoryChanged: (Category) -> Unit,
 ) {
     var selectedCategoryId by remember { mutableStateOf(categories.firstOrNull()?.id.orEmpty()) }
 
@@ -54,24 +55,7 @@ fun NearbyCategoryFilterCHipList(
 private fun NearbyCategoryFilterCHipListPreview() {
     NearbyCategoryFilterCHipList(
         modifier = Modifier.fillMaxWidth(),
-        categories = listOf(
-            NearbyCategory(
-                id = "1",
-                name = "Alimentação",
-            ),
-            NearbyCategory(
-                id = "2",
-                name = "Cinema",
-            ),
-            NearbyCategory(
-                id = "3",
-                name = "Farmácia",
-            ),
-            NearbyCategory(
-                id = "4",
-                name = "Supermercado",
-            ),
-        ),
+        categories = mockCategories,
         onSelectCategoryChanged = {},
     )
 }

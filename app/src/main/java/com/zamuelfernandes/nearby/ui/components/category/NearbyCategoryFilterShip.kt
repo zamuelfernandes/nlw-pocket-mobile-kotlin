@@ -13,7 +13,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.zamuelfernandes.nearby.data.model.NearbyCategory
+import com.zamuelfernandes.nearby.data.model.Category
+import com.zamuelfernandes.nearby.data.model.mock.mockCategories
 import com.zamuelfernandes.nearby.ui.theme.Gray300
 import com.zamuelfernandes.nearby.ui.theme.Gray400
 import com.zamuelfernandes.nearby.ui.theme.GreenBase
@@ -22,7 +23,7 @@ import com.zamuelfernandes.nearby.ui.theme.Typography
 @Composable
 fun NearbyCategoryFilterChip(
     modifier: Modifier = Modifier,
-    category: NearbyCategory,
+    category: Category,
     isSelected: Boolean,
     onClick: (isSelected: Boolean) -> Unit
 ) {
@@ -71,10 +72,7 @@ fun NearbyCategoryFilterChip(
 @Composable
 private fun NearbyCategoryFilterChipSelectedPreview() {
     NearbyCategoryFilterChip(
-        category = NearbyCategory(
-            id = "1",
-            name = "Alimentação",
-        ),
+        category = mockCategories.first(),
         isSelected = true,
         onClick = {}
     )
@@ -84,10 +82,7 @@ private fun NearbyCategoryFilterChipSelectedPreview() {
 @Composable
 private fun NearbyCategoryFilterChipNotSelectedPreview() {
     NearbyCategoryFilterChip(
-        category = NearbyCategory(
-            id = "1",
-            name = "Cinema",
-        ),
+        category = mockCategories.last(),
         isSelected = false,
         onClick = {}
     )
